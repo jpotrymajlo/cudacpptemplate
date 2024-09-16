@@ -1,0 +1,9 @@
+[requires]
+openssl/1.1.1l
+gtest/1.11.0
+
+[generators]
+cmake
+gcc
+cmake_find_package
+
