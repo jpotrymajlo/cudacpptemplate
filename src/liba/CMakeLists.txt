@@ -8,11 +8,9 @@ else()
   add_library(${TARGET_NAME} STATIC ${TARGET_SOURCES})
 endif()
 
-find_package(OpenSSL)
+find_package(fmt REQUIRED)
 
-
-target_link_libraries(${TARGET_NAME} PRIVATE project_options project_warnings)
-target_link_libraries(${TARGET_NAME} PUBLIC OpenSSL::SSL OpenSSL::Crypto)
+target_link_libraries(${TARGET_NAME} PRIVATE project_options project_warnings fmt::fmt)
 
 if(BUILD_TESTING)
   list(APPEND TEST_CASES

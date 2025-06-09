@@ -1,9 +1,7 @@
 [requires]
-openssl/1.1.1l
-gtest/1.11.0
+gtest/1.16.0
+fmt/10.2.1
 
 [generators]
-cmake
-gcc
-cmake_find_package
+CMakeDeps
 

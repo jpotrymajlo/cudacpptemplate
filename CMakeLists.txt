@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 
+set(CMAKE_PREFIX_PATH "/usr/local/cuda-12.6")
+
 # Set the project name to your project name, my project isn't very descriptive
-project(myproject CXX)
+project(myproject CUDA CXX)
 include(cmake/StandardProjectSettings.cmake)
 
 # Link this 'library' to set the c++ standard / compile-time options requested
@@ -24,7 +26,7 @@ include(cmake/CompilerWarnings.cmake)
 set_project_warnings(project_warnings)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
-option(ENABLE_TESTING "Enable Test Builds" ON)
+option(ENABLE_TESTING "Enable Test Builds" OFF)
 
 # Very basic PCH example
 option(ENABLE_PCH "Enable Precompiled Headers" ON)
@@ -41,11 +43,11 @@ if(ENABLE_PCH)
     <utility>)
 endif()
 
-option(ENABLE_CONAN "Use Conan for dependency management" ON)
-if(ENABLE_CONAN)
-  include(cmake/Conan.cmake)
-  run_conan()
-endif()
+#option(ENABLE_CONAN "Use Conan for dependency management" ON)
+#if(ENABLE_CONAN)
+#  include(cmake/Conan.cmake)
+#  run_conan()
+#endif()
 
 if(ENABLE_TESTING)
   enable_testing()
