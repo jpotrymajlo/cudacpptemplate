@@ -7,7 +7,7 @@ else()
   add_library(${TARGET_NAME} STATIC ${TARGET_SOURCES})
 endif()
 
-#target_link_libraries(${TARGET_NAME} PRIVATE project_options project_warnings)
 #target_link_libraries(${TARGET_NAME} PUBLIC OpenSSL::SSL OpenSSL::Crypto)
 set_target_properties(${TARGET_NAME} PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+set_target_properties(${TARGET_NAME} PROPERTIES CUDA_ARCHITECTURES all)
 

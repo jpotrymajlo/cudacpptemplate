@@ -12,6 +12,7 @@ set(TARGET_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
 add_executable(${TARGET_NAME} ${TARGET_SOURCES})
 
 
+set_target_properties(${TARGET_NAME} PROPERTIES CUDA_ARCHITECTURES all)
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../)
 target_link_libraries(${TARGET_NAME} PRIVATE project_options project_warnings)
 target_link_libraries(${TARGET_NAME} PUBLIC liba libmycuda)

@@ -2,6 +2,8 @@
 #include "libmycuda.hpp"
 
 __global__ void addOneKernel(int* data, int size) {
+	data[0]++;
+	printf("Hello from GPU\n");
 }
 
 extern "C" void addOne(int* data, int size) {
